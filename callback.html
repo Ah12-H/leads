@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Callback</title>
+  <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:40px;line-height:1.5;max-width:800px}</style>
+  <script>
+    function params() {
+      const p = new URLSearchParams(window.location.search);
+      const out = [];
+      for (const [k,v] of p.entries()) out.push(`<li><b>${k}</b>: ${v}</li>`);
+      return out.join("");
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("params").innerHTML = params();
+    });
+  </script>
+</head>
+<body>
+  <h1>Authorization Received</h1>
+  <p>If you came here from an OAuth flow, any returned parameters are shown below.</p>
+  <ul id="params"></ul>
+</body>
+</html>
